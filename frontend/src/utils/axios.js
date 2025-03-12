@@ -4,7 +4,7 @@ import Cookie from "js-cookie";
 
 // Create an Axios instance with default settings
 const apiInstance = axios.create({
-    baseURL: "http://127.0.0.1:8000/api/v1/",
+    baseURL: "https://lms-v1-backend.onrender.com/",
     timeout: 10000,
     headers: {
         "Content-Type": "application/json",
