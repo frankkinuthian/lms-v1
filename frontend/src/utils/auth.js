@@ -4,30 +4,6 @@ import jwt_decode from "jwt-decode";
 import Cookie from "js-cookie";
 import Swal from "sweetalert2";
 
-// OLD CODE COMMENTED WITH EXPLANATIONS
-
-/*
-// The original login function lacked error feedback if the status was not 200
-export const login = async (email, password) => {
-    try {
-        const { data, status } = await axios.post(`user/token/`, {
-            email,
-            password,
-        });
-
-        if (status === 200) {
-            setAuthUser(data.access, data.refresh);
-        }
-
-        return { data, error: null };
-    } catch (error) {
-        return {
-            data: null,
-            error: error.response.data?.detail || "Something went wrong",
-        };
-    }
-};
-*/
 
 // CHANGES:
 // - Added better error handling and logging to provide detailed feedback in case of failure
@@ -50,29 +26,6 @@ export const login = async (email, password) => {
     }
 };
 
-// OLD CODE
-
-/*
-// No changes in the register function, but logging could also be added for debugging
-export const register = async (full_name, email, password, password2) => {
-    try {
-        const { data } = await axios.post(`user/register/`, {
-            full_name,
-            email,
-            password,
-            password2,
-        });
-
-        await login(email, password);
-        return { data, error: null };
-    } catch (error) {
-        return {
-            data: null,
-            error: `${error.response.data.full_name} - ${error.response.data.email}` || "Something went wrong",
-        };
-    }
-};
-*/
 
 // CHANGES:
 // - No significant changes to this function. Left as is for now
@@ -95,16 +48,6 @@ export const register = async (full_name, email, password, password2) => {
     }
 };
 
-// OLD CODE COMMENTED WITH EXPLANATIONS
-
-/*
-// The original logout function is fine. No need for changes here
-export const logout = () => {
-    Cookie.remove("access_token");
-    Cookie.remove("refresh_token");
-    useAuthStore.getState().setUser(null);
-};
-*/
 
 // No changes needed for `logout`
 export const logout = () => {

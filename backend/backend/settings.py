@@ -258,7 +258,19 @@ SIMPLE_JWT = {
 }
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+# Update CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "https://lms-v1-beta.vercel.app",  # Replace with your actual Vercel domain
+    "http://localhost:5173",  # For local development
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+# Update CSRF settings if needed
+CSRF_TRUSTED_ORIGINS = [
+    "https://lms-v1-beta.vercel.app",  # Replace with your actual Vercel domain
+    "http://localhost:5173",
+]
 
 # Use whitenoise storage
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
